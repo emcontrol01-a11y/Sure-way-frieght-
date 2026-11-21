@@ -68,10 +68,13 @@ const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=form
  */
 export const PHOTOS = {
   // ---- Sea freight ----
+  seaCard: { src: u('photo-1590496793907-4d66e2994b4d'), alt: 'Container ship being loaded by quay cranes at a busy port at dusk' },
   seaHero: { src: u('photo-1769144256181-698b8f807066'), alt: 'Cargo ship loaded with colourful containers at a port' },
   seaBand: { src: u('photo-1606185540834-d6e7483ee1a4'), alt: 'Red and blue cargo ship sailing across open water' },
   // ---- Air freight ----
+  airCard: { src: u('photo-1721592873149-9823d9dc6b40'), alt: 'Airplane landing on a runway at dusk' },
   airHero: { src: u('photo-1775449053619-89b5265f611a'), alt: 'Large white cargo airplane parked on the apron' },
+  airBand: { src: u('photo-1787289434954-795edf0255b7'), alt: 'Cargo airplane in silhouette against an orange sky' },
   // ---- Clearing & forwarding ----
   clearingCard: { src: u('photo-1601897690942-bcacbad33e55'), alt: 'Blue, red and yellow intermodal shipping containers' },
   clearingHero: { src: u('photo-1773126378915-793b5c48fb38'), alt: 'Shipping containers stacked high at a busy port' },
@@ -80,7 +83,7 @@ export const PHOTOS = {
   roadBand: { src: u('photo-1616432043562-3671ea2e5242'), alt: 'Freight truck driving along a highway' },
   // ---- Warehousing + global logistics ----
   warehouseHero: { src: u('photo-1553413077-190dd305871c'), alt: 'Large warehouse interior with stocked racking' },
-  globalRow: { src: u('photo-1547312667-da746e5a78c7'), alt: 'Airplanes lined up at an airport' },
+  globalCard: { src: u('photo-1664382953403-fc1ac77073a0'), alt: 'Two staff members walking through a warehouse aisle' },
   globalHero: { src: u('photo-1466691623998-d607fab1ca29'), alt: 'Aerial view of an airport with many airplanes' },
   // ---- Page banners ----
   bannerServices: { src: u('photo-1765206257996-9b4a5d886a2c'), alt: 'Container ships and cranes at a busy port' },
@@ -112,8 +115,6 @@ export type Service = {
   icon: 'ship' | 'plane' | 'anchor' | 'boxes' | 'truck' | 'warehouse'
   image: string // local file or remote URL
   heroImage: { src: string; alt: string }
-  rowImage: { src: string; alt: string } // photo used on the /services overview page
-  focus?: string // CSS object-position for the home-page card crop
   summary: string
   intro: string
   includes: string[]
@@ -128,10 +129,8 @@ export const SERVICES: Service[] = [
     title: 'Sea freight',
     tag: 'OCEAN · FCL & LCL',
     icon: 'ship',
-    image: '/sureway-sea-sunset.jpg',
+    image: PHOTOS.seaCard.src,
     heroImage: PHOTOS.seaHero,
-    rowImage: { src: '/sureway-sea-crane.jpg', alt: 'Quay crane lifting a red container in the morning mist' },
-    focus: 'center 55%',
     summary: 'Move your cargo across oceans with dependable FCL and LCL shipping, clear communication and expert port coordination.',
     intro:
       'Most of Ghana’s trade arrives and leaves by sea through the Port of Tema. We handle the booking, documentation and port coordination so your container moves smoothly from the origin port to your door.',
@@ -151,10 +150,8 @@ export const SERVICES: Service[] = [
     title: 'Air freight',
     tag: 'AIR · PRIORITY',
     icon: 'plane',
-    image: '/sureway-air-sunset.jpg',
+    image: PHOTOS.airCard.src,
     heroImage: PHOTOS.airHero,
-    rowImage: { src: '/sureway-air-dusk.jpg', alt: 'Airplane and wrapped air cargo on the apron at dusk' },
-    focus: 'center 50%',
     summary: 'When time matters, we connect your shipment to global air cargo networks for fast, carefully managed delivery.',
     intro:
       'Urgent spare parts, time-sensitive stock or high-value goods — air freight gets them moving fast. We arrange space with airlines and manage the paperwork through Kotoka International Airport.',
@@ -174,10 +171,8 @@ export const SERVICES: Service[] = [
     title: 'Clearing & forwarding',
     tag: 'CUSTOMS · DOOR TO DOOR',
     icon: 'anchor',
-    image: '/sureway-clearing-crane.jpg',
+    image: PHOTOS.clearingCard.src,
     heroImage: PHOTOS.clearingHero,
-    rowImage: PHOTOS.clearingCard,
-    focus: 'center 55%',
     summary: 'Navigate customs with confidence. Our team coordinates documentation, clearance and forwarding at every step.',
     intro:
       'Customs paperwork is where shipments most often get stuck. We prepare and submit your declaration, coordinate inspections and duty payment, and forward your cargo onward once it is released.',
@@ -197,10 +192,8 @@ export const SERVICES: Service[] = [
     title: 'Road transport & haulage',
     tag: 'LAND · DOMESTIC & REGIONAL',
     icon: 'truck',
-    image: '/sureway-road-truck.jpg',
+    image: '/sureway-freight.png',
     heroImage: PHOTOS.roadHero,
-    rowImage: { src: '/sureway-freight.png', alt: 'Freight truck moving through a container terminal' },
-    focus: 'center 60%',
     summary: 'Reliable trucking from the port to your warehouse, across Ghana and onward across the region.',
     intro:
       'Cargo is only delivered when it reaches your door. We arrange haulage from Tema and Kotoka to Accra, Kumasi, Takoradi and beyond — and on to the sub-region where required.',
@@ -219,10 +212,8 @@ export const SERVICES: Service[] = [
     title: 'Warehousing & distribution',
     tag: 'STORAGE · FULFILMENT',
     icon: 'warehouse',
-    image: '/sureway-warehouse-team.jpg',
+    image: '/sureway-warehouse.png',
     heroImage: PHOTOS.warehouseHero,
-    rowImage: { src: '/sureway-warehouse.png', alt: 'Forklift and staff in a stocked warehouse' },
-    focus: 'center 50%',
     summary: 'Secure storage, consolidation and distribution so your stock is ready when your customers are.',
     intro:
       'Not every shipment goes straight to its final home. We receive, store, consolidate and dispatch your goods so you can hold stock close to the port and release it in step with demand.',
@@ -241,10 +232,8 @@ export const SERVICES: Service[] = [
     title: 'Global logistics',
     tag: '3PL · 4PL · 5PL',
     icon: 'boxes',
-    image: '/sureway-global-sunset.jpg',
+    image: PHOTOS.globalCard.src,
     heroImage: PHOTOS.globalHero,
-    rowImage: PHOTOS.globalRow,
-    focus: 'center 40%',
     summary: 'Practical 3PL, 4PL and 5PL support — from warehousing and transport to the last mile and everything between.',
     intro:
       'For businesses that would rather focus on selling than shipping, we can take on more of the supply chain: planning, carriers, warehousing, transport and delivery — managed as one joined-up service.',

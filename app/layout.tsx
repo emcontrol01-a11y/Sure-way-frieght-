@@ -5,24 +5,34 @@ import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SITE } from '@/lib/site'
+import { SEO, siteJsonLd } from '@/lib/seo'
 import './globals.css'
 import './pages.css'
+import './home-extras.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: {
-    default: 'Sure-Way Freight Ghana Ltd. | Global Logistics & Freight',
-    template: '%s | Sure-Way Freight Ghana',
+  title: { default: SEO.title, template: '%s | Sure-Way Freight Ghana' },
+  description: SEO.description,
+  keywords: SEO.keywords,
+  applicationName: SITE.short,
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  category: 'logistics',
+  // Every page gets its own canonical URL automatically
+  alternates: { canonical: './' },
+  robots: {
+    index: true, follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
   },
-  description:
-    'Reliable sea freight, air freight, clearing and forwarding, road transport and warehousing from Accra and Kasoa, Ghana to the world.',
   openGraph: {
-    type: 'website',
-    siteName: SITE.name,
-    title: 'Sure-Way Freight Ghana Ltd. | Global Logistics & Freight',
-    description: 'Sea freight, air freight, clearing & forwarding and end-to-end logistics from Accra and Kasoa, Ghana.',
-    locale: 'en_GH',
+    type: 'website', siteName: SITE.name, url: SITE.url, locale: 'en_GH',
+    title: SEO.title, description: SEO.description,
+    images: [{ url: SEO.ogImage, width: 1584, height: 672, alt: 'Sure-Way Freight Ghana: freight at the Port of Tema' }],
   },
+  twitter: { card: 'summary_large_image', title: SEO.title, description: SEO.description, images: [SEO.ogImage] },
+  formatDetection: { telephone: true, email: true, address: true },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
@@ -38,22 +48,6 @@ export const viewport: Viewport = {
   themeColor: '#681a31',
 }
 
-// Helps Google show the business correctly in search results
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FreightForwarder',
-  name: SITE.name,
-  url: SITE.url,
-  email: SITE.email,
-  telephone: SITE.phones.map((p) => p.tel),
-  location: [
-    { '@type': 'Place', name: 'Accra International Airport office', address: { '@type': 'PostalAddress', addressLocality: 'Accra', addressRegion: 'Greater Accra', addressCountry: 'GH' } },
-    { '@type': 'Place', name: 'Kasoa Danchira office', address: { '@type': 'PostalAddress', addressLocality: 'Kasoa', addressRegion: 'Central Region', addressCountry: 'GH' } },
-  ],
-  areaServed: 'Worldwide',
-  sameAs: Object.values(SITE.socials),
-}
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -67,7 +61,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <SiteFooter />
         <WhatsAppFloat />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd()) }} />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

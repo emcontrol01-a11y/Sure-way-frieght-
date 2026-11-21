@@ -27,7 +27,7 @@ export default function ServicesPage() {
         {SERVICES.map((s, i) => (
           <article className={'service-row' + (i % 2 ? ' flip' : '')} key={s.slug} data-reveal="up">
             <Link href={`/services/${s.slug}`} className="service-row-img">
-              <Image src={s.rowImage.src} alt={s.rowImage.alt} fill sizes="(max-width: 760px) 100vw, 50vw" />
+              <Image src={s.heroImage.src} alt={s.heroImage.alt} fill sizes="(max-width: 760px) 100vw, 50vw" />
               <span className="service-number">{s.number}</span>
               <span className="service-icon"><ServiceIcon name={s.icon} /></span>
             </Link>

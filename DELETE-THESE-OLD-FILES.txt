@@ -1,0 +1,6 @@
+After copying the new files over your project, delete these 4 old heavy images from the /public folder
+(they are replaced by the smaller .jpg versions and nothing uses them any more):
+  public/sureway-port.png
+  public/sureway-team.png
+  public/sureway-freight.png
+  public/sureway-warehouse.png

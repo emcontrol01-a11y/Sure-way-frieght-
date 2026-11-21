@@ -592,9 +592,3 @@ a.service-image { display: block; }
   .docs-box { padding: 32px 20px; }
   .contact-left, .contact-details { padding-left: 0; padding-right: 0; }
 }
-
-/* ---------- Home page: sections brought over from other pages ---------- */
-.offices { background: var(--paper); }
-.offices .office-grid { margin-top: 0; }
-.track-box .section-heading { margin-bottom: 34px; }
-.docs { background: #fffdf9; }

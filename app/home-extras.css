@@ -1,0 +1,23 @@
+/* app/home-extras.css: styles for the home "Quick quote" + "Find us" sections only.
+   Kept separate so your existing pages.css / globals.css are never overwritten. */
+.home-quote { background: var(--paper); }
+.home-quote-wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px 5%; align-items: start; }
+.home-quote-copy h2 { margin: 14px 0 18px; }
+.home-quote-copy p { color: var(--muted); line-height: 1.8; max-width: 460px; }
+.home-quote-points { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
+.home-quote-points li { display: flex; gap: 12px; align-items: center; font-size: 13px; font-weight: 600; color: var(--ink); }
+.home-quote-points li span { width: 8px; height: 8px; background: var(--gold); flex: none; }
+.home-quote .form-card { padding: 34px; background: #fffdf9; border: 1px solid #f0e4d9; box-shadow: 0 12px 30px rgba(92, 30, 44, .06); }
+
+.home-offices { background: #fffaf4; }
+.home-offices .office-body { padding: 24px 26px 26px; }
+.office-actions { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 6px; }
+.office-actions .about-link { margin-top: 10px; }
+
+@media (max-width: 960px) {
+  .home-quote-wrap { grid-template-columns: 1fr; }
+  .home-quote .form-card { padding: 22px; }
+}
+@media (max-width: 760px) {
+  .home-offices .office-grid { grid-template-columns: 1fr; }
+}

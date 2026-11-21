@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, MessageCircle, Phone } from 'lu
 import { PageHero } from '@/components/page-hero'
 import { CtaBand } from '@/components/cta-band'
 import { SERVICES, SITE, whatsappLink } from '@/lib/site'
+import { serviceJsonLd } from '@/lib/seo'
 
 // Pre-build one page per service
 export function generateStaticParams() {
@@ -15,7 +16,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const s = SERVICES.find((x) => x.slug === slug)
-  return s ? { title: s.title, description: s.summary } : {}
+  return s ? { title: s.title, description: s.summary, alternates: { canonical: `/services/${s.slug}` } } : {}
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -27,6 +28,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd(service.slug)) }} />
       <PageHero
         eyebrow={service.tag}
         title={service.title}
