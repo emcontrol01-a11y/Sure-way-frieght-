@@ -72,7 +72,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
           </select>
         </label>
         <label>Origin (city / country) *<input value={f.origin} onChange={set('origin')} placeholder="e.g. Guangzhou, China" /></label>
-        <label>Destination *<input value={f.destination} onChange={set('destination')} placeholder="e.g. Tema, Ghana" /></label>
+        <label>Destination *<input value={f.destination} onChange={set('destination')} placeholder="e.g. Accra, Ghana" /></label>
         <label className="span-2">What are you shipping? *<input value={f.cargo} onChange={set('cargo')} placeholder="e.g. 200 cartons of floor tiles" /></label>
         <label>Approx. weight / volume<input value={f.weight} onChange={set('weight')} placeholder="e.g. 2,500 kg or 8 CBM" /></label>
         <label>Cargo ready date<input value={f.date} onChange={set('date')} type="date" /></label>

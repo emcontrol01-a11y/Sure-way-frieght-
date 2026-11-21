@@ -23,7 +23,7 @@ export function SiteFooter() {
               <small>FREIGHT GHANA LTD.</small>
             </span>
           </Link>
-          <p>An independent logistics partner in Tema – Accra, moving cargo by sea, air and land with care at every hand-off.</p>
+          <p>An independent logistics partner with offices at Accra International Airport and Kasoa Danchira, moving cargo by sea, air and land with care at every hand-off.</p>
           <div className="socials" aria-label="Social media">
             <a href={SITE.socials.facebook} target="_blank" rel="noreferrer" aria-label="Sure-Way Freight Ghana on Facebook">
               <FacebookIcon />
@@ -71,9 +71,11 @@ export function SiteFooter() {
             <li>
               <Mail size={14} /> <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
             </li>
-            <li>
-              <MapPin size={14} /> <a href={SITE.mapLink} target="_blank" rel="noreferrer">{SITE.address}</a>
-            </li>
+            {SITE.offices.map((o) => (
+              <li key={o.name}>
+                <MapPin size={14} /> <a href={o.mapLink} target="_blank" rel="noreferrer">{o.name}</a>
+              </li>
+            ))}
             <li>
               <a href={SITE.url} target="_blank" rel="noreferrer">surewayfreightghana.com</a>
             </li>

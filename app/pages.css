@@ -110,7 +110,7 @@ a.service-image { display: block; }
 .quote-graphic.static { position: static; transform: none; display: block; font-size: 120px; color: #681a3122; margin-bottom: 10px; }
 
 /* ---------- About page ---------- */
-.story { display: grid; grid-template-columns: 1.05fr .95fr; gap: 7%; align-items: center; background: var(--paper); }
+.story { display: grid; grid-template-columns: 1.05fr .95fr; gap: 36px 7%; align-items: center; background: var(--paper); }
 .story h2 { margin: 18px 0 18px; font: 600 clamp(32px, 4vw, 48px)/1.1 'Manrope', sans-serif; letter-spacing: -.055em; }
 .story h2 em { font-family: Georgia, serif; font-weight: 400; color: #9b6516; }
 .story-text p { color: #6a5853; font-size: 13px; line-height: 1.9; max-width: 520px; }
@@ -127,7 +127,7 @@ a.service-image { display: block; }
 
 /* ---------- Services pages ---------- */
 .service-rows { display: grid; gap: 70px; background: var(--paper); }
-.service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6%; align-items: center; }
+.service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 6%; align-items: center; }
 .service-row.flip .service-row-img { order: 2; }
 .service-row-img { position: relative; height: 380px; overflow: hidden; display: block; background: #efe2d4; }
 .service-row-img > img { object-fit: cover; transition: transform .6s; }
@@ -137,7 +137,7 @@ a.service-image { display: block; }
 .service-row-body .about-link { margin-top: 24px; }
 
 .docs { background: #fffdf9; }
-.docs-box { display: grid; grid-template-columns: 1fr 1fr; gap: 8%; align-items: center; padding: 56px 6%; background: #fff3e4; border: 1px solid #f0e4d9; }
+.docs-box { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 8%; align-items: center; padding: 56px 6%; background: #fff3e4; border: 1px solid #f0e4d9; }
 .docs-box h2 { margin: 16px 0 14px; font: 600 clamp(28px, 3.4vw, 40px)/1.1 'Manrope', sans-serif; letter-spacing: -.05em; }
 .docs-box h2 em { font-family: Georgia, serif; font-weight: 400; color: #9b6516; }
 .docs-box p { color: #6a5853; font-size: 13px; line-height: 1.85; }
@@ -145,7 +145,7 @@ a.service-image { display: block; }
 .docs-box li { display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid #ecd9c4; font-size: 13px; }
 .docs-box li svg { flex: none; color: var(--orange); }
 
-.detail { display: grid; grid-template-columns: 1.6fr 1fr; gap: 6%; background: var(--paper); align-items: start; }
+.detail { display: grid; grid-template-columns: 1.6fr 1fr; gap: 36px 6%; background: var(--paper); align-items: start; }
 .detail h2 { margin: 16px 0 16px; font: 600 clamp(30px, 3.6vw, 44px)/1.1 'Manrope', sans-serif; letter-spacing: -.05em; }
 .detail h2 em { font-family: Georgia, serif; font-weight: 400; color: #9b6516; }
 .detail h3 { margin: 38px 0 4px; font: 700 18px 'Manrope', sans-serif; letter-spacing: -.03em; }
@@ -164,7 +164,7 @@ a.service-image { display: block; }
 .side-link:hover { color: var(--orange); }
 
 /* ---------- Forms (quote + track) ---------- */
-.form-layout { display: grid; grid-template-columns: 1.7fr 1fr; gap: 5%; background: var(--paper); align-items: start; }
+.form-layout { display: grid; grid-template-columns: 1.7fr 1fr; gap: 28px 5%; background: var(--paper); align-items: start; }
 .form-card { padding: 38px; background: #fffdf9; border: 1px solid #f0e4d9; box-shadow: 0 12px 30px rgba(92, 30, 44, .06); }
 .form-aside { display: grid; gap: 20px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
@@ -548,4 +548,47 @@ a.service-image { display: block; }
 @media (max-width: 420px) {
   .topline { justify-content: center; }
   .topline > span:first-child { display: none; }            /* email is the useful bit; location is already in the hero & footer */
+}
+
+
+/* ==========================================================================
+   OFFICES (Contact page: Accra International Airport + Kasoa Danchira)
+   ========================================================================== */
+.office-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+.office { display: grid; grid-template-rows: auto 1fr; background: #fffdf9; border: 1px solid #f0e4d9; box-shadow: 0 12px 30px rgba(92, 30, 44, .06); }
+.office .map-frame { height: 300px; border: 0; border-bottom: 1px solid #f0e4d9; }
+.office-body { display: grid; gap: 6px; align-content: start; padding: 26px 28px 30px; }
+.office-body h3 { margin: 6px 0 0; font: 700 22px 'Manrope', sans-serif; letter-spacing: -.03em; }
+.office-body p { margin: 0; font-size: 13px; color: #78655f; }
+.office-body .office-note { color: #5d4a47; line-height: 1.7; }
+.office-body .about-link { margin-top: 12px; }
+.social-card { margin-top: 20px; grid-template-columns: 1fr auto auto; align-items: center; gap: 22px; }
+.social-card .button { width: auto; }
+.social-card .socials { margin: 0; }
+@media (max-width: 900px) {
+  .office-grid { grid-template-columns: 1fr; }
+  .social-card { grid-template-columns: 1fr; }
+  .social-card .button { width: 100%; }
+}
+@media (max-width: 640px) {
+  .office .map-frame { height: 240px; }
+  .office-body { padding: 22px 20px 24px; }
+  .office-body p { font-size: 14px; }
+}
+@media (max-width: 480px) {
+  .topline { justify-content: center; }
+  .topline > span:first-child { display: none; }
+}
+
+/* ---------- Fix: the tablet height (300px) was overriding the phone height, so the 3 stacked photo tiles overflowed into the next section ---------- */
+@media (max-width: 640px) {
+  .photo-band { height: auto; }
+}
+
+/* ---------- Phones: one consistent left/right gutter (5%) for every section ---------- */
+@media (max-width: 640px) {
+  .about-content { padding: 52px 5% 50px; }
+  .mission > div { padding: 44px 5%; }
+  .docs-box { padding: 32px 20px; }
+  .contact-left, .contact-details { padding-left: 0; padding-right: 0; }
 }

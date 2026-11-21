@@ -32,7 +32,7 @@ export function SiteHeader() {
     <>
       <div className="topline">
         <span>
-          <MapPin size={13} /> {SITE.address.toUpperCase()}
+          <MapPin size={13} /> {SITE.locationShort.toUpperCase()}
         </span>
         <span className="topline-right">
           <span>GLOBAL REACH. GHANAIAN ROOTS.</span>

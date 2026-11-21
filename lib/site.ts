@@ -17,9 +17,27 @@ export const SITE = {
     { display: '+233 53 156 6744', tel: '+233531566744', wa: '233531566744' },
     { display: '+233 55 797 7779', tel: '+233557977779', wa: '233557977779' },
   ],
-  address: 'Tema – Accra, Ghana',
-  mapEmbed: 'https://www.google.com/maps?q=Tema+Port,+Ghana&output=embed',
-  mapLink: 'https://www.google.com/maps/search/?api=1&query=Sure-Way+Freight+Ghana+Tema+Accra',
+  /** Short line for the top bar and tight spaces */
+  locationShort: 'Accra International Airport · Kasoa Danchira',
+  /** Full line for the footer / contact details */
+  address: 'Accra International Airport & Kasoa Danchira, Ghana',
+  /** Both offices — each gets its own map + directions link on the Contact page */
+  offices: [
+    {
+      name: 'Accra International Airport',
+      area: 'Accra · Greater Accra Region',
+      note: 'Air cargo and Kotoka clearing desk',
+      mapEmbed: 'https://www.google.com/maps?q=Kotoka+International+Airport,+Accra,+Ghana&output=embed',
+      mapLink: 'https://www.google.com/maps/search/?api=1&query=Kotoka+International+Airport+Accra+Ghana',
+    },
+    {
+      name: 'Kasoa Danchira',
+      area: 'Kasoa · Central Region',
+      note: 'Road transport, warehousing and walk-in enquiries',
+      mapEmbed: 'https://www.google.com/maps?q=Danchira,+Kasoa,+Ghana&output=embed',
+      mapLink: 'https://www.google.com/maps/search/?api=1&query=Danchira+Kasoa+Ghana',
+    },
+  ],
   /**
    * TODO (Emma): replace these three with the exact page URLs once you have
    * them (e.g. https://facebook.com/<page>). Until then they open a search
@@ -44,22 +62,39 @@ export function whatsappLink(text = 'Hello Sure-Way Freight, I would like to mak
  * ------------------------------------------------------------------ */
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`
 
+/**
+ * RULE: every photo is used in exactly ONE place on the site (client request:
+ * no repeated photos). When you add a new spot, add a new photo here too.
+ */
 export const PHOTOS = {
-  seaPort: { src: u('photo-1769837496184-32831581c55a'), alt: 'Container ship and cranes at a busy shipping port' },
-  seaShip: { src: u('photo-1769144256207-bc4bb75b29db'), alt: 'Cargo ship loaded with colourful containers at a busy port' },
-  containers: { src: u('photo-1678182451047-196f22a4143e'), alt: 'Shipping containers stacked high in a container yard' },
-  containersOrange: { src: u('photo-1605732562742-3023a888e56e'), alt: 'Stacked orange shipping containers against a deep blue sky' },
-  airCargo: { src: u('photo-1787289434954-795edf0255b7'), alt: 'A cargo airplane in silhouette against a bright orange sky' },
-  airCargoPlane: { src: u('photo-1775449053619-89b5265f611a'), alt: 'A large white cargo airplane on the apron' },
-  airliner: { src: u('photo-1436491865332-7a61a109cc05'), alt: 'Aerial view of an airliner in flight' },
-  warehouse: { src: u('photo-1553413077-190dd305871c'), alt: 'Large warehouse interior with stocked racking' },
-  warehouseShelves: { src: u('photo-1627309366653-2dedc084cdf1'), alt: 'Tall shelving filled with cardboard boxes in a warehouse' },
-  warehouseBoxes: { src: u('photo-1586528116311-ad8dd3c8310d'), alt: 'Stacked boxes and crates in storage' },
-  warehouseTeam: { src: u('photo-1664382953403-fc1ac77073a0'), alt: 'Two staff members walking through a warehouse aisle' },
-  truck: { src: u('photo-1601584115197-04ecc0da31d7'), alt: 'White freight truck on the road' },
-  truck2: { src: u('photo-1616432043562-3671ea2e5242'), alt: 'Freight truck driving on a highway' },
-  truckYard: { src: u('photo-1492168732976-2676c584c675'), alt: 'Aerial view of a freight truck lot' },
-  trucksParked: { src: u('photo-1565793298595-6a879b1d9492'), alt: 'Trucks parked and ready for dispatch' },
+  // ---- Sea freight ----
+  seaCard: { src: u('photo-1590496793907-4d66e2994b4d'), alt: 'Container ship being loaded by quay cranes at a busy port at dusk' },
+  seaHero: { src: u('photo-1769144256181-698b8f807066'), alt: 'Cargo ship loaded with colourful containers at a port' },
+  seaBand: { src: u('photo-1606185540834-d6e7483ee1a4'), alt: 'Red and blue cargo ship sailing across open water' },
+  // ---- Air freight ----
+  airCard: { src: u('photo-1721592873149-9823d9dc6b40'), alt: 'Airplane landing on a runway at dusk' },
+  airHero: { src: u('photo-1775449053619-89b5265f611a'), alt: 'Large white cargo airplane parked on the apron' },
+  airBand: { src: u('photo-1787289434954-795edf0255b7'), alt: 'Cargo airplane in silhouette against an orange sky' },
+  // ---- Clearing & forwarding ----
+  clearingCard: { src: u('photo-1601897690942-bcacbad33e55'), alt: 'Blue, red and yellow intermodal shipping containers' },
+  clearingHero: { src: u('photo-1773126378915-793b5c48fb38'), alt: 'Shipping containers stacked high at a busy port' },
+  // ---- Road transport ----
+  roadHero: { src: u('photo-1601584115197-04ecc0da31d7'), alt: 'White freight truck on the road' },
+  roadBand: { src: u('photo-1616432043562-3671ea2e5242'), alt: 'Freight truck driving along a highway' },
+  // ---- Warehousing + global logistics ----
+  warehouseHero: { src: u('photo-1553413077-190dd305871c'), alt: 'Large warehouse interior with stocked racking' },
+  globalCard: { src: u('photo-1664382953403-fc1ac77073a0'), alt: 'Two staff members walking through a warehouse aisle' },
+  globalHero: { src: u('photo-1466691623998-d607fab1ca29'), alt: 'Aerial view of an airport with many airplanes' },
+  // ---- Page banners ----
+  bannerServices: { src: u('photo-1765206257996-9b4a5d886a2c'), alt: 'Container ships and cranes at a busy port' },
+  bannerAbout: { src: u('photo-1769837496184-32831581c55a'), alt: 'Container ship and cranes at a busy shipping port' },
+  bannerQuote: { src: u('photo-1562892302-97faedd66f1c'), alt: 'Aerial view of freight containers' },
+  bannerTrack: { src: u('photo-1670121180530-cfcba4438038'), alt: 'Large cargo ship at a dock' },
+  bannerFaq: { src: u('photo-1590497008432-598f04441de8'), alt: 'Shipping port with containers and cranes under a dramatic sky' },
+  bannerContact: { src: u('photo-1492168732976-2676c584c675'), alt: 'Aerial view of a freight truck lot' },
+  // ---- About page ----
+  aboutStory: { src: u('photo-1627309366653-2dedc084cdf1'), alt: 'Tall shelving filled with cardboard boxes in a warehouse' },
+  aboutTeam: { src: u('photo-1565793298595-6a879b1d9492'), alt: 'Freight trucks parked and ready for dispatch' },
 }
 
 /* ------------------------------------------------------------------ */
@@ -94,8 +129,8 @@ export const SERVICES: Service[] = [
     title: 'Sea freight',
     tag: 'OCEAN · FCL & LCL',
     icon: 'ship',
-    image: PHOTOS.seaShip.src,
-    heroImage: PHOTOS.seaPort,
+    image: PHOTOS.seaCard.src,
+    heroImage: PHOTOS.seaHero,
     summary: 'Move your cargo across oceans with dependable FCL and LCL shipping, clear communication and expert port coordination.',
     intro:
       'Most of Ghana’s trade arrives and leaves by sea through the Port of Tema. We handle the booking, documentation and port coordination so your container moves smoothly from the origin port to your door.',
@@ -115,8 +150,8 @@ export const SERVICES: Service[] = [
     title: 'Air freight',
     tag: 'AIR · PRIORITY',
     icon: 'plane',
-    image: PHOTOS.airCargo.src,
-    heroImage: PHOTOS.airCargo,
+    image: PHOTOS.airCard.src,
+    heroImage: PHOTOS.airHero,
     summary: 'When time matters, we connect your shipment to global air cargo networks for fast, carefully managed delivery.',
     intro:
       'Urgent spare parts, time-sensitive stock or high-value goods — air freight gets them moving fast. We arrange space with airlines and manage the paperwork through Kotoka International Airport.',
@@ -136,8 +171,8 @@ export const SERVICES: Service[] = [
     title: 'Clearing & forwarding',
     tag: 'CUSTOMS · DOOR TO DOOR',
     icon: 'anchor',
-    image: PHOTOS.containers.src,
-    heroImage: PHOTOS.containersOrange,
+    image: PHOTOS.clearingCard.src,
+    heroImage: PHOTOS.clearingHero,
     summary: 'Navigate customs with confidence. Our team coordinates documentation, clearance and forwarding at every step.',
     intro:
       'Customs paperwork is where shipments most often get stuck. We prepare and submit your declaration, coordinate inspections and duty payment, and forward your cargo onward once it is released.',
@@ -158,7 +193,7 @@ export const SERVICES: Service[] = [
     tag: 'LAND · DOMESTIC & REGIONAL',
     icon: 'truck',
     image: '/sureway-freight.png',
-    heroImage: PHOTOS.truck,
+    heroImage: PHOTOS.roadHero,
     summary: 'Reliable trucking from the port to your warehouse, across Ghana and onward across the region.',
     intro:
       'Cargo is only delivered when it reaches your door. We arrange haulage from Tema and Kotoka to Accra, Kumasi, Takoradi and beyond — and on to the sub-region where required.',
@@ -178,7 +213,7 @@ export const SERVICES: Service[] = [
     tag: 'STORAGE · FULFILMENT',
     icon: 'warehouse',
     image: '/sureway-warehouse.png',
-    heroImage: PHOTOS.warehouse,
+    heroImage: PHOTOS.warehouseHero,
     summary: 'Secure storage, consolidation and distribution so your stock is ready when your customers are.',
     intro:
       'Not every shipment goes straight to its final home. We receive, store, consolidate and dispatch your goods so you can hold stock close to the port and release it in step with demand.',
@@ -197,8 +232,8 @@ export const SERVICES: Service[] = [
     title: 'Global logistics',
     tag: '3PL · 4PL · 5PL',
     icon: 'boxes',
-    image: '/sureway-team.png',
-    heroImage: PHOTOS.warehouseTeam,
+    image: PHOTOS.globalCard.src,
+    heroImage: PHOTOS.globalHero,
     summary: 'Practical 3PL, 4PL and 5PL support — from warehousing and transport to the last mile and everything between.',
     intro:
       'For businesses that would rather focus on selling than shipping, we can take on more of the supply chain: planning, carriers, warehousing, transport and delivery — managed as one joined-up service.',
@@ -252,7 +287,7 @@ export const DOCUMENTS = [
 export const FAQS = [
   {
     q: 'What services does Sure-Way Freight Ghana offer?',
-    a: 'We offer sea freight (FCL and LCL), air freight, clearing and forwarding, road transport, warehousing and wider 3PL/4PL/5PL logistics support, based in Tema – Accra.',
+    a: 'We offer sea freight (FCL and LCL), air freight, clearing and forwarding, road transport, warehousing and wider 3PL/4PL/5PL logistics support, with offices at Accra International Airport and Kasoa Danchira.',
   },
   {
     q: 'How do I get a quote?',

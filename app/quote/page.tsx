@@ -19,7 +19,7 @@ export default async function QuotePage({ searchParams }: { searchParams: Promis
         eyebrow="REQUEST A QUOTE"
         title={<>Tell us what’s moving.<br /><em>We’ll do the rest.</em></>}
         lead="Share a few details and we’ll come back with a clear quote and a plan for your cargo."
-        image={PHOTOS.containers}
+        image={PHOTOS.bannerQuote}
         crumbs={[{ label: 'Get a quote' }]}
       />
       <section className="section-pad form-layout">

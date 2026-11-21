@@ -9,7 +9,7 @@ import { DOCUMENTS, PHOTOS, SERVICES } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Our services',
-  description: 'Sea freight, air freight, clearing and forwarding, road transport, warehousing and 3PL/4PL/5PL logistics from Tema–Accra, Ghana.',
+  description: 'Sea freight, air freight, clearing and forwarding, road transport, warehousing and 3PL/4PL/5PL logistics from Accra and Kasoa, Ghana.',
 }
 
 export default function ServicesPage() {
@@ -19,7 +19,7 @@ export default function ServicesPage() {
         eyebrow="WHAT WE DO"
         title={<>One partner.<br /><em>Every mile.</em></>}
         lead="Sea, air and land freight, customs clearing, warehousing and wider logistics support — managed together."
-        image={PHOTOS.seaShip}
+        image={PHOTOS.bannerServices}
         crumbs={[{ label: 'Services' }]}
       />
 

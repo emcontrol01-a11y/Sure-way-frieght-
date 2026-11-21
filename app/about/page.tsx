@@ -8,7 +8,7 @@ import { PHOTOS, SERVICES, VALUES } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'About us',
-  description: 'Sure-Way Freight Ghana Ltd. is an independent logistics partner in Tema–Accra offering sea, air and road freight, customs clearing and warehousing.',
+  description: 'Sure-Way Freight Ghana Ltd. is an independent logistics partner with offices at Accra International Airport and Kasoa Danchira offering sea, air and road freight, customs clearing and warehousing.',
 }
 
 export default function AboutPage() {
@@ -17,8 +17,8 @@ export default function AboutPage() {
       <PageHero
         eyebrow="ABOUT SURE-WAY"
         title={<>Personal service.<br /><em>Global perspective.</em></>}
-        lead="An independent logistics partner in Tema–Accra, helping people and businesses move goods across borders, oceans and town."
-        image={PHOTOS.seaPort}
+        lead="An independent logistics partner with offices at Accra International Airport and Kasoa Danchira, helping people and businesses move goods across borders, oceans and town."
+        image={PHOTOS.bannerAbout}
         crumbs={[{ label: 'About us' }]}
       />
 
@@ -26,13 +26,13 @@ export default function AboutPage() {
         <div className="story-text" data-reveal="left">
           <div className="eyebrow dark-eyebrow"><span className="eyebrow-line" /> OUR STORY</div>
           <h2>Freight that gives you <em>one less thing to worry about.</em></h2>
-          <p>Sure-Way Freight Ghana Ltd. was built on a simple idea: moving cargo should not feel complicated. Based in Tema–Accra, right beside Ghana’s busiest seaport, we help businesses and individuals ship, clear and deliver goods with clear communication from start to finish.</p>
+          <p>Sure-Way Freight Ghana Ltd. was built on a simple idea: moving cargo should not feel complicated. With offices at Accra International Airport and Kasoa Danchira, and close working ties with the Port of Tema, we help businesses and individuals ship, clear and deliver goods with clear communication from start to finish.</p>
           <p>We work as an extension of your team. You get responsive people, practical solutions and a plan that makes sense — whether you are importing your first container or managing regular shipments across several countries.</p>
           <Link className="about-link dark-link" href="/quote">Start a shipment with us <ArrowUpRight size={16} /></Link>
         </div>
         <div className="story-photo" data-reveal="right">
-          <Image src="/sureway-team.png" alt="Sure-Way logistics professionals planning a shipment" fill sizes="(max-width: 760px) 100vw, 45vw" data-parallax="0.12" />
-          <div className="image-caption"><span>ON THE GROUND IN GHANA</span><span><MapPin size={13} /> TEMA · ACCRA</span></div>
+          <Image src={PHOTOS.aboutStory.src} alt={PHOTOS.aboutStory.alt} fill sizes="(max-width: 760px) 100vw, 45vw" data-parallax="0.12" />
+          <div className="image-caption"><span>ON THE GROUND IN GHANA</span><span><MapPin size={13} /> ACCRA · KASOA</span></div>
         </div>
       </section>
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
 
       <section className="about about-reverse">
         <div className="about-image" data-reveal="left">
-          <Image src={PHOTOS.warehouseTeam.src} alt={PHOTOS.warehouseTeam.alt} fill sizes="(max-width: 760px) 100vw, 50vw" data-parallax="0.12" />
+          <Image src={PHOTOS.aboutTeam.src} alt={PHOTOS.aboutTeam.alt} fill sizes="(max-width: 760px) 100vw, 50vw" data-parallax="0.12" />
         </div>
         <div className="about-content" data-reveal="right">
           <div className="eyebrow"><span className="eyebrow-line" /> WHY SURE-WAY</div>

@@ -16,7 +16,7 @@ export default function TrackPage() {
         eyebrow="TRACK YOUR CARGO"
         title={<>Where’s my cargo?<br /><em>Let’s find out.</em></>}
         lead="Enter your booking, bill of lading or container number and we’ll send you the latest update."
-        image={PHOTOS.seaPort}
+        image={PHOTOS.bannerTrack}
         crumbs={[{ label: 'Track cargo' }]}
       />
 

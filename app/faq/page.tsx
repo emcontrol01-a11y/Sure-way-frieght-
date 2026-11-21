@@ -23,7 +23,7 @@ export default function FaqPage() {
         eyebrow="FREQUENTLY ASKED"
         title={<>Good questions.<br /><em>Straight answers.</em></>}
         lead="Everything you need to know before your cargo starts moving."
-        image={PHOTOS.containersOrange}
+        image={PHOTOS.bannerFaq}
         crumbs={[{ label: 'FAQ' }]}
       />
       <section className="section-pad faq-page">

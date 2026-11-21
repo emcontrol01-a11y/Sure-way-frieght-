@@ -15,12 +15,12 @@ export const metadata: Metadata = {
     template: '%s | Sure-Way Freight Ghana',
   },
   description:
-    'Reliable sea freight, air freight, clearing and forwarding, road transport and warehousing from Tema–Accra, Ghana to the world.',
+    'Reliable sea freight, air freight, clearing and forwarding, road transport and warehousing from Accra and Kasoa, Ghana to the world.',
   openGraph: {
     type: 'website',
     siteName: SITE.name,
     title: 'Sure-Way Freight Ghana Ltd. | Global Logistics & Freight',
-    description: 'Sea freight, air freight, clearing & forwarding and end-to-end logistics from Tema–Accra, Ghana.',
+    description: 'Sea freight, air freight, clearing & forwarding and end-to-end logistics from Accra and Kasoa, Ghana.',
     locale: 'en_GH',
   },
   icons: {
@@ -46,7 +46,10 @@ const jsonLd = {
   url: SITE.url,
   email: SITE.email,
   telephone: SITE.phones.map((p) => p.tel),
-  address: { '@type': 'PostalAddress', addressLocality: 'Tema', addressRegion: 'Greater Accra', addressCountry: 'GH' },
+  location: [
+    { '@type': 'Place', name: 'Accra International Airport office', address: { '@type': 'PostalAddress', addressLocality: 'Accra', addressRegion: 'Greater Accra', addressCountry: 'GH' } },
+    { '@type': 'Place', name: 'Kasoa Danchira office', address: { '@type': 'PostalAddress', addressLocality: 'Kasoa', addressRegion: 'Central Region', addressCountry: 'GH' } },
+  ],
   areaServed: 'Worldwide',
   sameAs: Object.values(SITE.socials),
 }
@@ -58,7 +61,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* Turns on scroll animations before first paint (skipped for 'reduce motion') so content never flashes */}
         <script dangerouslySetInnerHTML={{ __html: "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion-ready')" }} />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <ScrollEffects />
         <SiteHeader />
         {children}

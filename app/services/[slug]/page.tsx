@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight, ArrowUpRight, CheckCircle2, MessageCircle, Phone } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
 import { CtaBand } from '@/components/cta-band'
-import { PHOTOS, SERVICES, SITE, whatsappLink } from '@/lib/site'
+import { SERVICES, SITE, whatsappLink } from '@/lib/site'
 
 // Pre-build one page per service
 export function generateStaticParams() {
@@ -57,9 +56,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
 
         <aside className="detail-side" data-reveal="right">
-          <div className="side-photo">
-            <Image src={PHOTOS.warehouseTeam.src} alt={PHOTOS.warehouseTeam.alt} fill sizes="(max-width: 760px) 100vw, 30vw" />
-          </div>
           <div className="side-card">
             <span className="service-tag">GET A QUOTE</span>
             <h4>Ready to ship with {SITE.short}?</h4>

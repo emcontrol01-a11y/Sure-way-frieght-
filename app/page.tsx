@@ -21,7 +21,7 @@ export default function Page() {
             <Link className="text-link" href="/services">Explore our services <ArrowDownRight size={17} /></Link>
           </div>
         </div>
-        <div className="hero-bottom"><span><span className="status-dot" /> YOUR PARTNER IN EVERY PORT</span><span>01 / 04 <span className="hero-rule" /> TEMA, GHANA</span></div>
+        <div className="hero-bottom"><span><span className="status-dot" /> YOUR PARTNER IN EVERY PORT</span><span>01 / 04 <span className="hero-rule" /> ACCRA · KASOA</span></div>
         <div className="hero-side-note">SEA <span>·</span> AIR <span>·</span> LAND</div>
       </section>
 
@@ -30,7 +30,7 @@ export default function Page() {
         <div className="marquee-track">
           {[0, 1].map((n) => (
             <div className="marquee-set" key={n}>
-              {[...SERVICES.map((s) => s.title.toUpperCase()), 'TEMA – ACCRA, GHANA'].map((t) => (
+              {[...SERVICES.map((s) => s.title.toUpperCase()), 'ACCRA · KASOA, GHANA'].map((t) => (
                 <span key={t + n}>{t}<i>✦</i></span>
               ))}
             </div>
@@ -76,12 +76,12 @@ export default function Page() {
       <section className="about" id="about">
         <div className="about-image" data-reveal="left">
           <Image src="/sureway-team.png" alt="Sure-Way logistics professionals planning a shipment together" fill sizes="(max-width: 760px) 100vw, 50vw" data-parallax="0.12" />
-          <div className="image-caption"><span>ON THE GROUND IN GHANA</span><span><MapPin size={13} /> TEMA · ACCRA</span></div>
+          <div className="image-caption"><span>ON THE GROUND IN GHANA</span><span><MapPin size={13} /> ACCRA · KASOA</span></div>
         </div>
         <div className="about-content" data-reveal="right">
           <div className="eyebrow"><span className="eyebrow-line" /> A BETTER WAY TO MOVE</div>
           <h2>Personal service.<br /><em>Global perspective.</em></h2>
-          <p>Sure-Way Freight Ghana Ltd. is an independent logistics partner based in Tema–Accra. We help people and businesses move goods across borders, across oceans and across town—with care at every hand-off.</p>
+          <p>Sure-Way Freight Ghana Ltd. is an independent logistics partner with offices at Accra International Airport and Kasoa Danchira. We help people and businesses move goods across borders, across oceans and across town—with care at every hand-off.</p>
           <p>We believe the best freight service is the kind that gives you one less thing to worry about: responsive people, practical solutions and a plan that makes sense.</p>
           <Link className="about-link" href="/about">A little more about us <ArrowUpRight size={16} /></Link>
           <div className="about-stats"><div><strong>SEA</strong><span>Ocean freight</span></div><div><strong>AIR</strong><span>Air cargo</span></div><div><strong>LAND</strong><span>Road delivery</span></div></div>
@@ -108,9 +108,9 @@ export default function Page() {
       {/* ---------- PHOTO BAND ---------- */}
       <section className="photo-band" aria-label="Sea, air and land freight" data-stagger>
         {[
-          { p: PHOTOS.seaShip, label: 'SEA', href: '/services/sea-freight' },
-          { p: PHOTOS.airCargo, label: 'AIR', href: '/services/air-freight' },
-          { p: PHOTOS.truck, label: 'LAND', href: '/services/road-transport' },
+          { p: PHOTOS.seaBand, label: 'SEA', href: '/services/sea-freight' },
+          { p: PHOTOS.airBand, label: 'AIR', href: '/services/air-freight' },
+          { p: PHOTOS.roadBand, label: 'LAND', href: '/services/road-transport' },
         ].map(({ p, label, href }) => (
           <Link href={href} className="photo-tile" key={label} data-reveal="up">
             <Image src={p.src} alt={p.alt} fill sizes="(max-width: 760px) 100vw, 33vw" data-parallax="0.14" />
@@ -123,7 +123,7 @@ export default function Page() {
       <section className="lanes section-pad">
         <div className="section-heading" data-reveal="up">
           <div><div className="eyebrow dark-eyebrow"><span className="eyebrow-line" /> TRADE LANES</div><h2>Connected to<br /><em>where you trade.</em></h2></div>
-          <p>Tema and Accra are our home base. From here we connect your cargo to the world’s major trading regions and to the sub-region.</p>
+          <p>Accra and Kasoa are our home base. From here we connect your cargo to the world’s major trading regions and to the sub-region.</p>
         </div>
         <div className="lane-list">
           {LANES.map((l) => (
@@ -174,7 +174,7 @@ export default function Page() {
         </div>
         <div className="contact-details" data-reveal="right">
           <a href={`mailto:${SITE.email}`}><span className="contact-icon"><Mail /></span><span><small>EMAIL US</small><strong>{SITE.email}</strong></span><ArrowUpRight /></a>
-          <a href={SITE.mapLink} target="_blank" rel="noreferrer"><span className="contact-icon"><MapPin /></span><span><small>FIND US</small><strong>{SITE.address}</strong></span><ArrowUpRight /></a>
+          <Link href="/contact"><span className="contact-icon"><MapPin /></span><span><small>VISIT OUR OFFICES</small><strong>{SITE.locationShort}</strong></span><ArrowUpRight /></Link>
           <a href={SITE.url} target="_blank" rel="noreferrer"><span className="contact-icon"><Globe2 /></span><span><small>VISIT ONLINE</small><strong>surewayfreightghana.com</strong></span><ArrowUpRight /></a>
           <Link className="contact-email-cta" href="/quote">Send us a freight enquiry <ArrowRight size={16} /></Link>
         </div>
