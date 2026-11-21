@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Clock3, Globe2, MapPin, PackageCheck, Phone, Mail, Plus } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Clock3, FileText, Globe2, MapPin, PackageCheck, Phone, Mail, Plus } from 'lucide-react'
 import { ServiceIcon } from '@/components/icons'
+import { TrackForm } from '@/components/track-form'
 import { CtaBand } from '@/components/cta-band'
-import { FAQS, INDUSTRIES, LANES, PHOTOS, PROCESS, SERVICES, SITE } from '@/lib/site'
+import { DOCUMENTS, FAQS, INDUSTRIES, LANES, PHOTOS, PROCESS, SERVICES, SITE } from '@/lib/site'
 
 export default function Page() {
   return (
@@ -57,7 +58,7 @@ export default function Page() {
           {SERVICES.map((s) => (
             <article className="service-card" key={s.slug} data-reveal="up">
               <Link href={`/services/${s.slug}`} className="service-image" aria-label={`Learn more about ${s.title}`}>
-                <Image src={s.image} alt={s.title + ' operations'} fill sizes="(max-width: 760px) 100vw, 50vw" />
+                <Image src={s.image} alt={s.title + ' operations'} fill sizes="(max-width: 760px) 100vw, 50vw" style={{ objectPosition: s.focus }} />
                 <span className="service-number">{s.number}</span>
                 <span className="service-icon"><ServiceIcon name={s.icon} /></span>
               </Link>
@@ -109,7 +110,7 @@ export default function Page() {
       <section className="photo-band" aria-label="Sea, air and land freight" data-stagger>
         {[
           { p: PHOTOS.seaBand, label: 'SEA', href: '/services/sea-freight' },
-          { p: PHOTOS.airBand, label: 'AIR', href: '/services/air-freight' },
+          { p: { src: '/sureway-air-loading.jpg', alt: 'Cargo being loaded into an airplane hold from a cargo loader' }, label: 'AIR', href: '/services/air-freight' },
           { p: PHOTOS.roadBand, label: 'LAND', href: '/services/road-transport' },
         ].map(({ p, label, href }) => (
           <Link href={href} className="photo-tile" key={label} data-reveal="up">
@@ -147,6 +148,29 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ---------- TRACK CARGO (from the Track page) ---------- */}
+      <section className="track-box section-pad" id="track">
+        <div className="section-heading" data-reveal="up">
+          <div><div className="eyebrow dark-eyebrow"><span className="eyebrow-line" /> TRACK YOUR CARGO</div><h2>Where’s my cargo?<br /><em>Let’s find out.</em></h2></div>
+          <p>Enter your booking, bill of lading or container number and we’ll send you the latest update.</p>
+        </div>
+        <div className="form-card" data-reveal="up"><TrackForm /></div>
+        <div className="services-foot" data-reveal="up"><span>EVERY SHIPMENT FOLLOWS SIX STAGES</span><Link href="/track">See the journey <ArrowRight size={15} /></Link></div>
+      </section>
+
+      {/* ---------- DOCUMENTS (from the Services page) ---------- */}
+      <section className="docs section-pad">
+        <div className="docs-box" data-reveal="up">
+          <div>
+            <div className="eyebrow dark-eyebrow"><span className="eyebrow-line" /> BEFORE YOU SHIP</div>
+            <h2>Documents that <em>keep cargo moving.</em></h2>
+            <p>Having the right paperwork ready is the fastest way to avoid delays at the port or airport. Most shipments need the following — we’ll confirm exactly what applies to yours.</p>
+            <Link className="about-link dark-link" href="/quote">Ask us what you need <ArrowRight size={16} /></Link>
+          </div>
+          <ul>{DOCUMENTS.map((d) => <li key={d}><FileText size={16} /> {d}</li>)}</ul>
+        </div>
+      </section>
+
       {/* ---------- FAQ TEASER ---------- */}
       <section className="faq-teaser section-pad">
         <div className="section-heading" data-reveal="up">
@@ -163,6 +187,30 @@ export default function Page() {
 
       <CtaBand />
 
+      {/* ---------- OFFICES + MAPS (from the Contact page) ---------- */}
+      <section className="offices section-pad" id="offices">
+        <div className="section-heading" data-reveal="up">
+          <div><div className="eyebrow dark-eyebrow"><span className="eyebrow-line" /> VISIT US</div><h2>Two offices.<br /><em>One phone call away.</em></h2></div>
+          <p>Drop in, call or message us. We’re at Accra International Airport and in Kasoa Danchira.</p>
+        </div>
+        <div className="office-grid" data-stagger>
+          {SITE.offices.map((o) => (
+            <article className="office" key={o.name} data-reveal="up">
+              <div className="map-frame">
+                <iframe title={`Map of ${o.name}`} src={o.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+              </div>
+              <div className="office-body">
+                <span className="service-tag">OUR OFFICE</span>
+                <h3>{o.name}</h3>
+                <p>{o.area}</p>
+                <p className="office-note">{o.note}</p>
+                <a className="about-link dark-link" href={o.mapLink} target="_blank" rel="noreferrer">Get directions <ArrowUpRight size={16} /></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* ---------- CONTACT ---------- */}
       <section className="contact section-pad" id="contact">
         <div className="contact-left" data-reveal="left">
@@ -174,7 +222,7 @@ export default function Page() {
         </div>
         <div className="contact-details" data-reveal="right">
           <a href={`mailto:${SITE.email}`}><span className="contact-icon"><Mail /></span><span><small>EMAIL US</small><strong>{SITE.email}</strong></span><ArrowUpRight /></a>
-          <Link href="/contact"><span className="contact-icon"><MapPin /></span><span><small>VISIT OUR OFFICES</small><strong>{SITE.locationShort}</strong></span><ArrowUpRight /></Link>
+          <a href="#offices"><span className="contact-icon"><MapPin /></span><span><small>VISIT OUR OFFICES</small><strong>{SITE.locationShort}</strong></span><ArrowUpRight /></a>
           <a href={SITE.url} target="_blank" rel="noreferrer"><span className="contact-icon"><Globe2 /></span><span><small>VISIT ONLINE</small><strong>surewayfreightghana.com</strong></span><ArrowUpRight /></a>
           <Link className="contact-email-cta" href="/quote">Send us a freight enquiry <ArrowRight size={16} /></Link>
         </div>
