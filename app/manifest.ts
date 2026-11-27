@@ -1,17 +1,18 @@
-/** app/manifest.ts  ->  /manifest.webmanifest (lets phones "Add to home screen" with the right name, icon and colour) */
 import type { MetadataRoute } from 'next'
-import { SITE } from '@/lib/site'
 
+// Lets phones "Add to home screen" with the ship logo, and gives Google a second icon source.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: SITE.name,
+    name: 'Sure-Way Freight Ghana Ltd.',
     short_name: 'Sure-Way',
-    description: 'Sea freight, air freight, customs clearing, road transport and warehousing from Accra and Kasoa, Ghana.',
+    description: 'Sea freight, air freight, clearing & forwarding and logistics from Accra and Kasoa, Ghana.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#fff8f0',
+    background_color: '#fffaf4',
     theme_color: '#681a31',
-    lang: 'en-GH',
-    icons: [{ src: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+    icons: [
+      { src: '/sureway-icon-192.png', sizes: '192x192', type: 'image/png' },
+      { src: '/sureway-icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
   }
 }

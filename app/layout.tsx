@@ -33,13 +33,17 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image', title: SEO.title, description: SEO.description, images: [SEO.ogImage] },
   formatDetection: { telephone: true, email: true, address: true },
+  // Favicon = the Sure-Way ship logo. Google needs a square icon in multiples of 48px,
+  // plus /favicon.ico at the site root. Files live in /public (sureway-*.png + favicon.ico).
   icons: {
     icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/sureway-favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/sureway-favicon-96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/sureway-icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
-    apple: '/apple-icon.png',
+    shortcut: '/favicon.ico',
+    apple: [{ url: '/sureway-apple-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
